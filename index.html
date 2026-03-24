@@ -3,38 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chris Kiddo | Ale Chris</title>
+    <title>Chris Kiddo | Setlist Interativo</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <h1 class="logo">CHRIS KIDDO</h1>
-        <p class="subtitle">Cinematic Experience | Live Music</p>
-    </header>
-
     <section class="banner">
         <div class="banner-content">
-            <h2>Alignment</h2>
-            <p>New Single Out Now</p>
+            <h1>CHRIS KIDDO</h1>
+            <p>Peça sua música favorita abaixo!</p>
         </div>
     </section>
 
-    <section class="videos">
-        <h3>Live Performances</h3>
-        <div class="video-grid">
-            <iframe src="https://www.youtube.com/watch?v=7M-Xh-UnajE" frameborder="0" allowfullscreen></iframe>
-        </div>
-    </section>
-
-    <section class="setlist">
-        <h3>Peça sua Música</h3>
-        <p>Clique na música para enviar o pedido direto no meu WhatsApp!</p>
+    <section class="setlist-container">
+        <input type="text" id="busca" placeholder="🔍 Procurar música ou artista..." onkeyup="filtrarMusicas()">
+        
         <ul id="music-list">
-            <li onclick="pedirMusica('Música Exemplo 1')">Música Exemplo 1</li>
-            <li onclick="pedirMusica('Música Exemplo 2')">Música Exemplo 2</li>
-            <li onclick="pedirMusica('Música Exemplo 3')">Música Exemplo 3</li>
-        </ul>
+            </ul>
     </section>
 
     <script src="script.js"></script>
