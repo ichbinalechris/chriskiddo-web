@@ -1,194 +1,46 @@
-const minhasMusicas = [
-    "3 Doors Down - Here Without you", "4 Non Blondies - SpaceMan", "4 Non Blondies - What's Up",
-    "10.000 Maniacs - Because The Night", "10.000 Maniacs - More Than This",
-    "A Day To Remember - If It Means a Lot To You", "A Great Big World - Say Something",
-    "A-Ha - Craying In The Rain", "A-Ha - Take On Me", "ABBA - Dancing Queen",
-    "AC/DC - Highway To Hell", "Adam Lambert - Ghost Town", "Adele - If It Hadn't Been For Love",
-    "Adele - Rolling In The Deep", "Adele - Set Fire To The Rain", "Adele - Someone Like You",
-    "Adele - Send My Love", "Aerosmith - Cryin'", "Aerosmith - Full Circle", "Aerosmith - Pink",
-    "Al Green - Let's Stay Together", "Alanis Morissette - Crazy", "Alanis Morissette - Everything",
-    "Alanis Morissette - Hand In My Pocket", "Alanis Morissette - Hands Clean",
-    "Alanis Morissette - Head Over Feet", "Alanis Morissette - Ironic",
-    "Alanis Morissette - No Pressure Over Cappuccino", "Alanis Morissette - Thank You",
-    "Alanis Morissette - That I Would Be Good", "Alanis Morissette - Through You",
-    "Alanis Morissette - Uninvited", "Alanis Morissette - You Learn", "Alanis Morissette - You Oughta Know",
-    "Alicia Keys - Fallin", "Alicia Keys - No One", "Alok - Hear Me Now", "Amy MacDonald - This Is The Life",
-    "Amy winehouse - Back to black", "Amy Winehouse - Cherry", "Amy Winehouse - Rehab",
-    "Amy Winehouse - Valerie", "Amy Winehouse - You Know I'm No Good", 
-    "Amy Winehouse - Will You Still Love Me Tomorrow", "Anna Nalick - Breathe (2Am)",
-    "Aretha Franklin - Respect!", "Audioslave - Doesn't Remind me", "Audioslave - Like A Stone",
-    "Avicii - The Night", "Avril Lavigne - I With You", "Avril Lavigne - My Happy Ending",
-    "Avril Lavigne - Nobody's Fool", "Avril Lavigne - Nobody's Home", "Avril Lavigne - Things I'll Never Say",
-    "Bangles - Eternal Flame", "Bastille - Pompeii", "Beatles - Help!", "Beatles - All my Loving",
-    "Beatles - Eleanor Rigby", "Beatles - Hard Days Night", "Beatles - Hey Jude",
-    "Beatles - I’ve Just Seen A Face", "Beatles - In My Life", "Beatles - Let It be",
-    "Beatles - Love Me Do", "Beatles - Oh Darling!", "Beatles - Stand By Me",
-    "Beatles - Yellow Submarine", "Beatles - You've got to hide your love away",
-    "Beatles - Across The Universe", "Beatles - All You Need Is Love", "Beatles - While My Guitar Gently Weeps",
-    "Beatles - With A Little Help From My Friends", "Beatles - Yesterday", "Beirut - Scenic World",
-    "Beirute - Elephant Gun", "Beyoncé - Halo", "Bill Medley and Jennifer Warnes - The Time Of My Life",
-    "Blink 182 - I Miss You", "Blink 182 - All The Small Things", "Blondie - Maria",
-    "Blondie - The Tide Is High", "Blondie - One Way Or Another", "Blue Swede - Hooked On A Feeling",
-    "Bob Dylan - Knockin' on heavens door", "Bob Dylan - Blowin' in the wind", "Bob Marley - One Love",
-    "Bob Marley - Redemption Song", "Bob Marley - Three Little Birds",
-    "Bob Sinclair/Ian Van Dahl/Gigi D'Agostino - Love Genaration/Movin'on/I'll Fly with you",
-    "Bobby McFerrin - Don't Worry, Be Happy", "Bon Jovi - I'll Be There 4u", "Bon Jovi - It's My Life",
-    "Bon Jovi - Janie, Don't You Take Your Love To Town", "Bon Jovi - Misunderstood",
-    "Britney Spears - Toxic", "Bruno Mars - Just The Way You Are", "Bruno Mars - Marry You",
-    "Bruno Mars - Talking To The Moon", "Bryan Adams - Everything I do",
-    "Bryan Adams - I Will Be Right Here Waiting", "Carli Simon - Coming Around Again",
-    "Celine Dion - Because You Loved Me", "Cher - Believe", "Christina Aguilera - Beautiful",
-    "Cindy Lauper - I Drove All Night", "Cindy Lauper - Time After time", "Cindy Lauper - True Colors",
-    "Coldplay - Clocks", "Coldplay - Fix You", "Coldplay - Hardest part", "Coldplay - In my place",
-    "Coldplay - Speed of sound", "Coldplay - The Scientist", "Coldplay - Viva La Vida",
-    "Coldplay - Yellow", "Coldplay - Magic", "Counting Crows - Accidentally In Love",
-    "Creed - Don't Stop Dancing", "Creed - My Sacrifice", "Creed - One Last Breath", "Creed - Higher",
-    "Creedence Clearwater Revival - Have You Ever Seen The Rain", "Croncret Blond - Joey",
-    "Daft Punk- Get Luck", "David Guetta - Titanium", "Deborah Blando - Innocence",
-    "Depeche mode - Enjoy The Silence", "Des' ree - Life", "Des' ree - You Gotta Be",
-    "Dido - Here With Me", "Dido - Hunter", "Dido - Life For Rent", "Dido - White Flag", "Dido - Thank You",
-    "Divinyls - I Touch Myself", "Dua Lipa - Break My Heart", "Dua Lipa - Levitating", "Dua Lipa - New Rules",
-    "Eagle Eyed Cherry - Falling In Love Again", "Eagle eyed cherry - Save Tonight",
-    "Eagles - Hotel California", "Ed Sheeran - Sing", "Ed Sheeran - Give Me Love", "Ed Sheeran - Perfect!",
-    "Ed Sheeran - Photograph", "Eddie Vedder - Rise", "Eddie Vedder - Society", "Eisley - Telescope Eyes",
-    "Elvis Costello - She", "Elvis Presley - Suspicious Minds", "Elvis Presley - Can't Help Falling In Love",
-    "Elvis Presley - It's Now Or Never", "Elvis Presley - Love Me Tender", "Erasure - A Little Respect",
-    "Erasure - Blue Savannah", "Erasure - Oh Lamour", "Eros & Tina Tuner - Cosa Della Vita",
-    "Eurythmics - Miracle of love", "Eurythmics - Sweet Dreams",
-    "Eurythmics - There Must Be An Angel Playng With My Heart", "Eurythmics - When Tomorrow Comes",
-    "Evanescence - Going Under", "Extreme - More Than Words", "Faith no more - Easy", "Fastball - The Way",
-    "Foo Fighters - Times Like These", "Foo Fighters - Learn To Fly", "Foo Fighters - My Hero",
-    "Foo Figthers - Best Of You", "Foster the People - Pumped Up Kicks", "Frank Sinatra - Fly Me To The Moon",
-    "Franz Ferdinand - Do You Want To", "Franz Ferdinand - Take me out", "Frente - Bizarre Love Triangle",
-    "FUN feat Janelle Monáe - We are Young", "Garbage - Only Happy When It Rains", "George Ezra - Budapest",
-    "George Michael - Heal The Pain", "Gloria Estefan - Reach", "Gnarls Barkley - Crazy", "Gogo Doolls - Iris",
-    "Green Day - When I Come Around", "Green Day - Basket Case", "Guns and Roses - Sweet Child O'mine",
-    "Guns and roses - Used To Love Her", "Hanson - Save Me", "Harry Stlyes - Sign Of The Times",
-    "Harry Styles - As It Was", "Harry Styles - Watermelon Sugar", "Hilsong United - Oceans",
-    "Hoobastank - The Reason", "Hoodo Gurus - Night Must Fall", "Icona Pop - I Love It", "Iggy Pop - Candy",
-    "Imagine Dragons - Demons", "Imagine Dragons- Monster", "Imagine Dragons - Radioactive",
-    "Imagine Dragons - Thunder", "Imagine Dragons - It's Time", "Incubus - Drive", "Incubus - I Miss You",
-    "Incubus - Talk Show On Mute", "Information Society - Repetition",
-    "Isreal Kamakawiwoole - Somewhere Over The Rainbow", "James Bay - Hold Back the River",
-    "James Blunt - High", "Janis Joplin - Mercedes Benz", "Janis Joplin - Piece Of My Heart",
-    "Jason Mraz - 93 Million Miles", "Jeff Buckley- Hallelujah", "Jessie J - Price Tag",
-    "Jet - Look What You've Done", "Jet - Are You Gonna Be My Girl", "Jewel - Hands",
-    "Jimmy Cliff - I Can See Cleary Now", "Joan Osbourn - One of us", "John Legend - All Of Me",
-    "John Lennon - Imagine", "Johnny Cash - You are my Sunshine", "Johnny Cash - Hurt",
-    "Johnny Cash - Ring Of fire", "Joseph Vincent - Can't Take My Eyes Of You", "Joss Stone - Right To Be Wrong",
-    "Justin Timberlake - Say Something", "Kansas - Dust In The Wind", "Kate Nash - Foundations",
-    "Kate Perry - Roar", "Katy Perry - Firework", "Katy Perry - Hot and Cold", "Katy Perry - The One That Got Away",
-    "Keane - Somewhere Only We Know", "Keane - Crystal Ball", "Kelly Clarkson - Breakaway",
-    "Kings of Leon - Use Somebody", "Kings of Leon - Molly's Chambers", "Kings of Leon - Sex On Fire",
-    "Kiss - We Are One", "Kodaline - All I Want", "Kodaline - Latch", "KT Tunstall - Other Side Of The World",
-    "Lady Gaga - Alejandro", "Lady Gaga - Bad romance", "Lady gaga - Born this way",
-    "Lady Gaga - I‘ll Always Remeber Us This Way", "Lady Gaga - Paparazzi", "Lady Gaga - Your Song (Elton John)",
-    "Lady Gaga - Million Reasons", "Lady Gaga/Bradley Cooper - Shallow", "Lana Del Rey - Summertime Sadness",
-    "Lana Del Rey - Video Game", "Lauryn Hill - Turn your lights down low", "Led Zeppelin - D'yer Maker",
-    "Leona Lewis - Bleeding Love", "Lewis Capaldi - Someone You Loved", "Lily Allen - Smile",
-    "Limp Bizkit - Behind Blue Eyes", "Linkin Park - Numb", "Live - Operation Spirit",
-    "Live - Pain lies on the riverside", "Live - Selling The Drama", "Live - When dolphins cry",
-    "Lord - Royals", "Louis Armstrong -What a Wonderfull World", "Madonna - American Life",
-    "Madonna - American pie", "Madonna - Bad Girl", "Madonna - Borderline", "Madonna - Cherish",
-    "Madonna - Crazy For you", "Madonna - Dress you Up", "Madonna - Express Yourself", "Madonna - Frozen",
-    "Madonna - Ghosttown", "Madonna - Gone", "Madonna - Holiday", "Madonna - Hung Up", "Madonna - Into The Groove",
-    "Madonna - Joan Of Arc", "Madonna - La Isla Bonita", "Madonna - Like A Prayer", "Madonna - Live To Tell",
-    "Madonna - Love Profusion", "Madonna - Lucky Star", "Madonna - Masterpiece", "Madonna - Material Girl",
-    "Madonna - Miles Away", "Madonna - Nothing Fails", "Madonna - Oh Father!", "Madonna - Open Your Heart",
-    "Madonna - Papa Don't Preach", "Madonna - Rain", "Madonna – Ray Of light", "Madonna - Secret",
-    "Madonna - Sorry", "Madonna - The power Of Good-Bye", "Madonna - True Blue", "Madonna - Vogue",
-    "Madonna - Who's that girl", "Madonna - You'll See", "Madonna/Michael Jackson - Like a Virgin/Billie Jean",
-    "Magic - Rude", "Maná - Vivir Sin Aire", "Mapei - Don't Wait", "Maroon 5 - Daylight", "Maroon 5 - Memories",
-    "Maroon 5 - She Will be loved", "Maroon 5 - Sugar", "Maroon 5 - Moves like Jagger", "Matchbox 20 - Unwell",
-    "Matt Simons - Catch And Release", "Men at work - Overkill", "Meredith Brooks - Bitch",
-    "Metalica - Whiskey In The Jar", "Metallica - Nothing Else Matters", "Michael Jackson - Heal The World",
-    "Michael Jackson - Black Or White", "Midnight Oil - Whoah", "Mika - Relax, Take It Easy",
-    "Mike and the Mechanics - Over My Shoulder", "Miley Cyrus - Flowers", "Miley Cyrus - We Can Stop",
-    "Miley Cyrus - Jolene (Dolly Parton)", "Miley Cyrus - Nothing Breaks Like a Heart", "Moby - The Perfect Life",
-    "Moby - Why Does My Heart Feel So Bad", "Morcheeba - Rome Wasn't Built In A Day", "Mumford Sons - Little Lion Man",
-    "Muse - Starlight", "Muse - Time Is Running Out", "Muse - Uprising", "Natalie Imbruglia - Torn",
-    "Natalie Imbruglia - Wishing I Was there", "Neil Young - Rockin in the free word", "Nelly Furtado - I'm Like a Bird",
-    "New Order - Regret", "Nickelback - Far Away", "Nickelback - Lullaby", "Nickelback - Never Gonna Be Alone",
-    "Oasis - All Around The World", "Oasis - Don't Go Away", "Oasis - Don't Look Back In Anger",
-    "Oasis - Go Let It Out", "Oasis - Stand By Me", "Oasis - Stop Crying Your Heart Out", "Oasis - Sunday Morning Call",
-    "Oasis - Wonderwall", "Oasis - Champagne Supernova", "Oasis - SongBird", "One Republic - Apologize",
-    "One Republic - Counting Stars", "Paramore - The Only Exception", "Passenger - Let Her Go",
-    "Pear Jam - Yellow Ledbetter", "Pearl Jam - Black", "Pearl Jam - Last Kiss", "Pearl Jam - Soldier Of Love",
-    "Phill Collins - You'll Be In My Heart", "Phoebe Buffey - Smelly Cat", "Pink - Don't Let Me Get Me",
-    "Pink - Fuckin' Perfect", "Pink - Glitter In The Air", "Pink - Try", "Pink - What About Us",
-    "Pink - Whataya Want From Me(Adam Lambert)", "Pink - Who Knew", "Pink Floyd - Wish You Were Here",
-    "Placebo - Every Me And Every You", "Queen - Crazy Little Thing Called Love", "Queen - Don't Stop Me Now",
-    "Queen - I Want It All", "Queen - I Want To Break Free", "Queen - Kind of Magic", "Queen - Love of my life",
-    "Queen - The Show Must Go On", "R.E.M - Everybody Hurts", "R.E.M - Losing My Religion",
-    "R.E.M - Man on the Moon", "R.E.M - The One I Love", "Radiohead - Creep", "Radiohead - Fake Plastics Trees",
-    "Radiohead - High And Dry", "Radiohead - There There", "Red Hot Chilli Peppers - Otherside",
-    "Red Hot Chilli Peppers - The Zephyr Song", "Red Hot Chilli Peppers - Under The Bridge",
-    "Regina Spektor - Fidelity", "Regina Spektor - You've got time", "Rick Astley - Hold Me In Your Arms",
-    "Rihanna - Diamonds", "Rihanna - Love on the Brain", "Rihanna - Love The Way you lie (Part 2)",
-    "Rihanna - Stay", "Rihanna - Umbrella", "Rihanna - We Found Love", "Rihanna - Where Have You Been",
-    "Robbie Williams - Angels", "Robbie Williams - Sexed Up", "Rolling Stones - Sympathy For The Devil",
-    "Rolling Stones - I'm Free", "Rolling Stones - You Can't Always Get What You Want",
-    "Roxette - Crash! Boom! Bang!", "Roxette - Fading like a Flower", "Roxette - How Do You Do",
-    "Roxette - Listen To Your Heart", "Roxette - Spending My Time", "Roxette - The Look", "Roy Orbison - You Got it",
-    "Rush - Tom Sawyer", "Santa Esmeralda - Don't Let Me Be Misunderstood", "Savage Garden - Trully Madly Deeply",
-    "Semisonic - Closing Time", "Semisonic - Secret Smile", "Shakira - Antologia", "Shakira - Ciega SordoMuda",
-    "Shakira - Estoy Aqui", "Shakira - Waka Waka", "Shakira - Pies Descalzos Sueos Blancos",
-    "Shakira - Underneath Your Clothes", "Shania Twain - You're Still The One", "Sheryl Crow - If It Makes You Happy",
-    "Sia - Unstoppable", "Sia - Bird Set Free", "Sia - Chandelier", "Sia - Elastic Heart", "Sia - ThunderClouds",
-    "Silverchair - Ana's Song", "Silverchair - Miss You Love", "Simple Minds - Don't You (Forget About Me)",
-    "Simple Plan - Welcome To My Life", "Sinead O'Connor - Nothing Compares", "Sixpence None The Richer - Don't Dream It's Over",
-    "Sixpence None The Richer - Kiss Me", "Smashing Pumpkins - Disarm", "Snow Patrol - Chasing Cars",
-    "Snow Patrol - Open your eyes", "Sonique - Sky", "Spice Girls - Mama", "Spice Girls - Say You'll Be There",
-    "Spice Girls - Viva Forever", "Spy vs Spy - Clarity Of Mind", "Steppenwolf - Born To Be Wild",
-    "Stereophonics - Maybe Tomorrow", "Stone Sour - Through Glass", "Stone Temple Pilots - Plush",
-    "Sublime - Santeria", "Survivor - Eye of the tiger", "Suzanne Vega - Luka", "System Of A Down - Lonely Day",
-    "System Of A Down - Toxicity", "Take That - Back For Good", "Talking Heads - Psycho Killer",
-    "Tangerine Kitty - Dumb Ways To Die", "Tears For Fears - Women in Chains", "The Calling - Wherever you will go",
-    "The Cardigans - Lovefool", "The Cardigans - My Favourite Game", "The Cinematic Orchestra - To Built A Home",
-    "The Corrs - Breathless", "The Corrs - Dreams", "The Corrs - Only when I sleep", "The Cranberries - Analyse",
-    "The Cranberries - Animal Instinct", "The Cranberries - Dreaming my dreams", "The Cranberries - Dreams",
-    "The Cranberries - Empty", "The Cranberries - Free to decide", "The Cranberries - Just my imagination",
-    "The Cranberries - Linger", "The Cranberries - Ode to my family", "The Cranberries - Stars",
-    "The Cranberries - Twenty One", "The Cranberries - Zombie", "The Cure - Friday im in love",
-    "The Doors - Roadhouse blues", "The Fugees - Killing me softly", "The Killers - All These Things That I've Done",
-    "The Killers - Human", "The killers - Mr Brightside", "The Killers - Somebody Told Me", "The Kooks - Young Folks",
-    "The Luminners - Ho Hey", "The Moldy Peaches - Anyone Else But You", "The National - I Need My Girl",
-    "The Pretenders - Back On The Chain Gang", "The Pretenders - Don't Get Me Wrong", "The Pretenders - I'll Stand by you",
-    "The Strokes - Last Night", "The Strokes - You Only Live Once", "The Verve - Lucky Man", "The Wanted - Glad you Came",
-    "Tina Tuner - Proud Mary", "Tom Petty - Free Falling", "Tori Amos - Crucify", "Tove Lo - Habits",
-    "Tracy Chapman - Baby Can I Hold You", "U2 - All I Want Is You", "U2 - Angel Of Harlem",
-    "U2 - Electrical Storm", "U2 - Everlasting Love", "U2 - One", "U2 - Sometimes You Can't Make It On Your Own",
-    "U2 - Stay", "U2 - The Hands That Built America", "U2 - Where The Streets Have No Name",
-    "U2 - With Or Without You", "Vance Joy - Missing Piece", "Velvet Revolver - Fall To Pieces",
-    "William Fitzsimmons - Beautiful Girl", "Zaz - Je Veux"
-];
-
-function carregarSetlist(listaFiltrada) {
-    const listaElemento = document.getElementById('music-list');
-    listaElemento.innerHTML = ""; // Limpa a lista
-    
-    const listaParaExibir = listaFiltrada || minhasMusicas;
-
-    listaParaExibir.forEach(musica => {
-        const li = document.createElement('li');
-        li.textContent = musica;
-        li.onclick = () => pedirMusica(musica);
-        listaElemento.appendChild(li);
-    });
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: white;
+  text-align: center;
 }
 
-function filtrarMusicas() {
-    const termoBusca = document.getElementById('busca').value.toLowerCase();
-    const filtradas = minhasMusicas.filter(musica => 
-        musica.toLowerCase().includes(termoBusca)
-    );
-    carregarSetlist(filtradas);
+.background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url('sua-foto.jpg') no-repeat center center/cover;
+  z-index: -1;
+  filter: brightness(0.4);
 }
 
-function pedirMusica(nomeMusica) {
-    const seuTelefone = "5511987779277"; 
-    const mensagem = encodeURIComponent(`Oi! Estou no seu show e gostaria de pedir: ${nomeMusica}`);
-    window.open(`https://wa.me/${seuTelefone}?text=${mensagem}`, '_blank');
+section {
+  padding: 60px 20px;
 }
 
-carregarSetlist();
+.hero h1 {
+  font-size: 48px;
+}
+
+.music-links a {
+  margin: 10px;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid white;
+  padding: 10px 20px;
+}
+
+.videos iframe {
+  width: 300px;
+  height: 170px;
+  margin: 10px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: white;
+  color: black;
+  text-decoration: none;
+}
