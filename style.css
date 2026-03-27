@@ -4,32 +4,32 @@
 }
 
 body {
-    background-color: #000000; /* Preto absoluto */
+    background-color: #000000;
     color: #ffffff;
     font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    text-align: center; /* Centraliza textos por padrão */
 }
 
-/* Seção do Banner (Foto de Alignment) */
+/* Seção do Banner */
 .banner {
     width: 100%;
-    height: 100vh; /* Ocupa a altura total da tela */
+    height: 100vh;
     background-color: #000000;
-    /* IMPORTANTE: O nome do arquivo abaixo deve ser IGUAL ao que você subiu no GitHub */
     background-image: url('alignment-capa.jpg'); 
     background-repeat: no-repeat;
     background-position: center top; 
-    background-size: contain; /* Garante que a foto apareça inteira sem cortes */
+    background-size: contain;
     
     display: flex;
-    align-items: flex-end;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end; /* Texto fica na base da foto */
     position: relative;
 }
 
-/* Efeito de degradê para suavizar a transição da foto para o conteúdo */
 .banner::after {
     content: '';
     position: absolute;
@@ -43,36 +43,24 @@ body {
 
 .banner-content {
     z-index: 2;
-    text-align: center;
     padding-bottom: 60px;
     text-transform: uppercase;
     letter-spacing: 5px;
 }
 
-.banner-content h1 {
-    font-size: 2.5rem;
-    margin: 0;
-}
-
-.banner-content p {
-    color: #888;
-    font-size: 0.9rem;
-}
-
-/* Container do Setlist */
+/* Container do Setlist Centralizado */
 .setlist-container {
-    padding: 20px;
+    padding: 40px 20px;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 0 auto; /* O segredo da centralização horizontal */
     background-color: #000000;
 }
 
-/* Campo de Busca Estilizado */
 #busca {
     width: 100%;
     max-width: 500px;
     padding: 15px 25px;
-    margin: 20px auto 40px auto;
+    margin: 0 auto 40px auto; /* Centraliza a barra de busca */
     display: block;
     background: #111;
     border: 1px solid #333;
@@ -81,43 +69,31 @@ body {
     font-size: 1rem;
     outline: none;
     transition: 0.3s;
-}
-
-#busca:focus {
-    border-color: #ffffff;
-    background: #1a1a1a;
+    text-align: center;
 }
 
 /* Lista de Músicas */
 #music-list {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 auto;
+    width: 100%;
 }
 
 #music-list li {
-    padding: 25px 15px;
+    padding: 20px;
     border-bottom: 1px solid #1a1a1a;
     cursor: pointer;
-    transition: 0.4s ease;
-    text-align: left;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    transition: 0.3s ease;
+    text-align: center; /* Centraliza o nome da música na linha */
 }
 
 #music-list li:hover {
     background: #ffffff;
     color: #000000;
-    padding-left: 30px; /* Efeito de deslize ao passar o mouse */
+    font-weight: bold;
 }
 
-/* Ajuste para Mobile (Celulares) */
 @media (max-width: 600px) {
-    .banner {
-        height: 70vh; /* Diminui um pouco a altura no celular para o setlist aparecer logo abaixo */
-    }
-    .banner-content h1 {
-        font-size: 1.8rem;
-    }
+    .banner { height: 70vh; }
 }
