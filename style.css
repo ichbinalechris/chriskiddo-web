@@ -14,7 +14,7 @@ body {
     linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.95)),
     url('sua-foto-alignment.jpg') no-repeat center center;
 
-  background-size: cover;
+  background-size: contain;
   background-attachment: fixed;
 
   z-index: -1;
