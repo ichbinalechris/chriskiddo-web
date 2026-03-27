@@ -1,52 +1,123 @@
+/* Configurações Gerais */
+* {
+    box-sizing: border-box;
+}
+
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  color: white;
-  text-align: center;
+    background-color: #000000; /* Preto absoluto */
+    color: #ffffff;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
-.background {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-
-  background: 
-    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.95)),
-    url('sua-foto-alignment.jpg') no-repeat center center;
-
-  background-size: contain;
-  background-attachment: fixed;
-
-  z-index: -1;
+/* Seção do Banner (Foto de Alignment) */
+.banner {
+    width: 100%;
+    height: 100vh; /* Ocupa a altura total da tela */
+    background-color: #000000;
+    /* IMPORTANTE: O nome do arquivo abaixo deve ser IGUAL ao que você subiu no GitHub */
+    background-image: url('alignment-capa.jpg'); 
+    background-repeat: no-repeat;
+    background-position: center top; 
+    background-size: contain; /* Garante que a foto apareça inteira sem cortes */
+    
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
 }
 
-section {
-  padding: 60px 20px;
+/* Efeito de degradê para suavizar a transição da foto para o conteúdo */
+.banner::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to bottom, transparent, #000000);
+    pointer-events: none;
 }
 
-.hero h1 {
-  font-size: 48px;
+.banner-content {
+    z-index: 2;
+    text-align: center;
+    padding-bottom: 60px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
 }
 
-.music-links a {
-  margin: 10px;
-  color: #fff;
-  text-decoration: none;
-  border: 1px solid white;
-  padding: 10px 20px;
+.banner-content h1 {
+    font-size: 2.5rem;
+    margin: 0;
 }
 
-.videos iframe {
-  width: 300px;
-  height: 170px;
-  margin: 10px;
+.banner-content p {
+    color: #888;
+    font-size: 0.9rem;
 }
 
-.btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 24px;
-  background: white;
-  color: black;
-  text-decoration: none;
+/* Container do Setlist */
+.setlist-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #000000;
+}
+
+/* Campo de Busca Estilizado */
+#busca {
+    width: 100%;
+    max-width: 500px;
+    padding: 15px 25px;
+    margin: 20px auto 40px auto;
+    display: block;
+    background: #111;
+    border: 1px solid #333;
+    color: #fff;
+    border-radius: 50px;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+#busca:focus {
+    border-color: #ffffff;
+    background: #1a1a1a;
+}
+
+/* Lista de Músicas */
+#music-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#music-list li {
+    padding: 25px 15px;
+    border-bottom: 1px solid #1a1a1a;
+    cursor: pointer;
+    transition: 0.4s ease;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#music-list li:hover {
+    background: #ffffff;
+    color: #000000;
+    padding-left: 30px; /* Efeito de deslize ao passar o mouse */
+}
+
+/* Ajuste para Mobile (Celulares) */
+@media (max-width: 600px) {
+    .banner {
+        height: 70vh; /* Diminui um pouco a altura no celular para o setlist aparecer logo abaixo */
+    }
+    .banner-content h1 {
+        font-size: 1.8rem;
+    }
 }
